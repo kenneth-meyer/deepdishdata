@@ -9,6 +9,8 @@ file_dest = "/mnt/orangefs/AoT_Chicago.complete.latest.tar"
 
 wget.download(url, file_dest)
 
+print("File download complete. Starting Tar extraction
+
 tf = tarfile.open("file_dest")
 
-tf.extractall()
+tf.extractall("/mnt/orangefs")
