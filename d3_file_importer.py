@@ -3,12 +3,14 @@ import wget
 
 print("Beginning file download")
 
-url = "http://www.mcs.anl.gov/research/projects/waggle/downloads/datasets/AoT_Chicago.complete.latest.tar"
+url = "https://s3.amazonaws.com/aot-tarballs/chicago-complete.monthly.2018-10-01-to-2018-10-31.tar"
 
-file_dest = "/mnt/orangefs/AoT_Chicago.complete.latest.tar"
+file_dest = "/mnt/orangefs/AoT_Chicago.oct.tar"
 
 wget.download(url, file_dest)
 
-tf = tarfile.open("file_dest")
+print("File download complete. Starting Tar extraction")
 
-tf.extractall()
+tf = tarfile.open(file_dest)
+
+tf.extractall("/mnt/orangefs")
